@@ -1,14 +1,15 @@
 package xhttp
 
 import (
-	"io"
 	"encoding/json"
-	"github.com/e-nikolov/pkg/xerror"
+	"io"
+
+	"github.com/e-nikolov/pkg/xerrors"
 )
 
 func WriteAsJSON(w io.Writer, obj interface{}) {
 	bytes, err := json.Marshal(obj)
-	xerror.PanicIfError(err)
+	xerrors.PanicIfError(err)
 
 	w.Write(bytes)
 }
